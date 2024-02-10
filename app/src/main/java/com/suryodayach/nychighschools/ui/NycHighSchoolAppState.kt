@@ -4,9 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
 import androidx.navigation.NavDestination
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navOptions
 import com.suryodayach.nychighschools.navigation.schoolListRoute
 
 @Composable
@@ -26,7 +28,7 @@ fun rememberNycHighSchoolAppState(
 class NycHighSchoolAppState(
     val navController: NavHostController
 ) {
-    private val currentDestination: NavDestination?
+    val currentDestination: NavDestination?
         @Composable get() = navController.currentBackStackEntryAsState().value?.destination
 
     val appBarTitle: String
@@ -35,4 +37,8 @@ class NycHighSchoolAppState(
             schoolListRoute -> "NYC High Schools"
             else -> "Details"
         }
+
+    fun navigateToPreviousScreen() {
+        navController.popBackStack()
+    }
 }

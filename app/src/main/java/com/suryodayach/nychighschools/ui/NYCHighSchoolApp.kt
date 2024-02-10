@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -21,6 +23,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import com.suryodayach.nychighschools.ui.component.NYCTopAppBar
 import com.suryodayach.nychighschools.navigation.NYCNavHost
+import com.suryodayach.nychighschools.navigation.schoolDetailsPattern
 import com.suryodayach.nychighschools.navigation.schoolListRoute
 
 @OptIn(ExperimentalComposeUiApi::class, ExperimentalLayoutApi::class,
@@ -51,9 +54,21 @@ fun NycHighSchoolApp(
                 )
         ) {
             Column(Modifier.fillMaxSize()) {
-                NYCTopAppBar(
-                    title = appState.appBarTitle
-                )
+                when (appState.currentDestination?.route) {
+                    schoolListRoute -> {
+                        NYCTopAppBar(
+                            title = appState.appBarTitle
+                        )
+                    }
+                    schoolDetailsPattern -> {
+                        NYCTopAppBar(
+                            title = appState.appBarTitle,
+                            navigationIcon = Icons.Rounded.ArrowBack,
+                            navigationIconContentDescription = "Go Back",
+                            onNavigationClick = appState::navigateToPreviousScreen
+                        )
+                    }
+                }
 
                 val startDestination = schoolListRoute
                 NYCNavHost(

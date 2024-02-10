@@ -9,7 +9,7 @@ data class HighSchool(
     val schoolName: String,
 
     @SerializedName("overview_paragraph")
-    val overview: String,
+    val overview: String = "",
 
     val location: String = "",
 
