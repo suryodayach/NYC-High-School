@@ -51,9 +51,6 @@ android {
         }
     }
 
-//    tasks.withType<Test> {
-//        useJUnitPlatform()
-//    }
 }
 
 dependencies {
@@ -105,14 +102,10 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.mockk)
     testImplementation(libs.mockk.android)
-//    testImplementation(libs.mockk.jvm)
     testImplementation(libs.kotest.junit)
     testImplementation(libs.kotest.assertions.core)
     testImplementation(libs.kotest.property)
 
-//    testImplementation(libs.mockk.common)
-//    testImplementation(libs.hilt.android.testing)
-//    kaptTest(libs.hilt.android.compiler)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(platform(libs.compose.bom))
