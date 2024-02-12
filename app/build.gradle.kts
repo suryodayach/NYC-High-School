@@ -50,6 +50,10 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
+//    tasks.withType<Test> {
+//        useJUnitPlatform()
+//    }
 }
 
 dependencies {
@@ -82,14 +86,6 @@ dependencies {
     implementation(libs.androidx.compose.runtime.tracing )
     implementation(libs.androidx.tracing.ktx)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
-
     implementation(libs.material.icons.extended)
     implementation(libs.paging.compose)
     implementation(libs.ui.util)
@@ -101,4 +97,26 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.gson.converter)
     implementation(libs.logging.interceptor)
+
+    // Test
+    testImplementation(libs.junit)
+    testImplementation(libs.mockito)
+    testImplementation(libs.arch.core.testing)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.mockk.android)
+//    testImplementation(libs.mockk.jvm)
+    testImplementation(libs.kotest.junit)
+    testImplementation(libs.kotest.assertions.core)
+    testImplementation(libs.kotest.property)
+
+//    testImplementation(libs.mockk.common)
+//    testImplementation(libs.hilt.android.testing)
+//    kaptTest(libs.hilt.android.compiler)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.ui.test.junit4)
+    debugImplementation(libs.ui.tooling)
+    debugImplementation(libs.ui.test.manifest)
 }

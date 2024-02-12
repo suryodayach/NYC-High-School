@@ -14,10 +14,10 @@ data class HighSchool(
     val location: String = "",
 
     @SerializedName("phone_number")
-    val phoneNumber: String = "NA",
+    val phoneNumber: String? = "",
 
     @SerializedName("school_email")
-    val schoolEmail: String = "NA",
+    val schoolEmail: String? = "",
 
     val city: String = "",
 )

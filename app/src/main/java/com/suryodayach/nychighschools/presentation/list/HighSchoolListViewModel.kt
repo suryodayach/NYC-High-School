@@ -30,7 +30,7 @@ class HighSchoolListViewModel @Inject constructor(
         getHighSchools()
     }
 
-    private fun getHighSchools() {
+    fun getHighSchools() {
         viewModelScope.launch(errorHandler + dispatcher) {
             nycRepository.getHighSchools().collect { highSchools ->
                 _uiState.value = HighSchoolListUiState.Success(highSchools)

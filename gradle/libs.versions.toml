@@ -39,6 +39,11 @@ extendedIcon = "1.5.0-beta02"
 paging_version = "3.3.0-alpha02"
 logging-interceptor = "4.12.0"
 google-map = "4.3.0"
+mockitoVersion = "5.10.0"
+archCoreTesting = "2.2.0"
+mockkVersion = "1.13.4"
+kotestVersion = "5.8.0"
+mockitoKotlinVersion = "4.1.0"
 
 [libraries]
 activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidxActivity" }
@@ -53,6 +58,10 @@ ui-util = { group = "androidx.compose.ui", name = "ui-util" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockkVersion" }
+mockk-android = { group = "io.mockk", name = "mockk-android", version.ref = "mockkVersion" }
+mockk-jvm = { group = "io.mockk", name = "mockk-jvm", version.ref = "mockkVersion" }
+mockk-common = { group = "io.mockk", name = "mockk-common", version.ref = "mockkVersion" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4"}
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest"}
 androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling"}
@@ -77,10 +86,16 @@ hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", vers
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-gradle-plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", version.ref = "hilt" }
 junit = { module = "junit:junit", version.ref = "junit" }
+mockito = { group = "org.mockito", name = "mockito-core", version.ref = "mockitoVersion"}
+mockito-kotlin = { group = "org.mockito.kotlin", name = "mockito-kotlin", version.ref = "mockitoKotlinVersion"}
+arch-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "archCoreTesting"}
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "kotlinxDatetime" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerializationJson" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+kotest-junit = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotestVersion" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotestVersion" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotestVersion" }
 okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
 retrofit-core = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }

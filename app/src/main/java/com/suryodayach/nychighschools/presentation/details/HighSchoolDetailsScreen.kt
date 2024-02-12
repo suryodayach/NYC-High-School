@@ -21,8 +21,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.UiMode
-import androidx.compose.ui.tooling.preview.Wallpapers
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -107,7 +105,7 @@ internal fun HighSchoolDetailsScreen(
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(18.dp)
                         )
-                        Text(uiState.highSchool.phoneNumber, style = MaterialTheme.typography.bodyMedium)
+                        Text(uiState.highSchool.phoneNumber?:"NA", style = MaterialTheme.typography.bodyMedium)
                     }
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -119,7 +117,7 @@ internal fun HighSchoolDetailsScreen(
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(18.dp)
                         )
-                        Text(uiState.highSchool.schoolEmail, style = MaterialTheme.typography.bodyMedium)
+                        Text(uiState.highSchool.schoolEmail?:"NA", style = MaterialTheme.typography.bodyMedium)
                     }
                 }
             }

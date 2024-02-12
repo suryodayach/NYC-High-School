@@ -35,7 +35,7 @@ class HighSchoolDetailsViewModel @Inject constructor(
         getHighSchool(highSchoolDbn)
     }
 
-    private fun getHighSchool(dbn: String) {
+    fun getHighSchool(dbn: String) {
         viewModelScope.launch(errorHandler + dispatcher) {
             nycRepository.getHighSchool(dbn).collect { highSchool ->
                 _uiState.value = HighSchoolDetailsUiState.Success(highSchool)

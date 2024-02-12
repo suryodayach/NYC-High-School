@@ -1,7 +1,5 @@
 package com.suryodayach.nychighschools.ui.component
 
-import android.graphics.drawable.Icon
-import androidx.compose.foundation.clickable
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
