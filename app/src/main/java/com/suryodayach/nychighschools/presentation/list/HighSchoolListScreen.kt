@@ -16,12 +16,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.suryodayach.nychighschools.data.model.HighSchool
+import com.suryodayach.nychighschools.utils.Description
 import com.suryodayach.nychighschools.ui.component.HighSchoolItem
+import com.suryodayach.nychighschools.utils.DummyContent
 
 @Composable
 fun HighSchoolListRoute(
@@ -53,6 +57,7 @@ internal fun HighSchoolListScreen(
             is HighSchoolListUiState.Loading -> {
                 CircularProgressIndicator(
                     modifier = Modifier
+                        .semantics { contentDescription = Description.HIGH_SCHOOL_LIST_LOADING }
                         .size(50.dp)
                         .align(Alignment.Center)
                 )
@@ -93,26 +98,7 @@ internal fun HighSchoolListScreen(
 fun HighSchoolListScreenPreview() {
     HighSchoolListScreen(
         uiState = HighSchoolListUiState.Success(
-            highSchools = listOf(
-                HighSchool(
-                    dbn = "12345",
-                    schoolName = "Clinton School Writers & Artists, M.S. 260",
-                    overview = "",
-                    location = "",
-                    phoneNumber = "",
-                    schoolEmail = "",
-                    city = "Manhattan"
-                ),
-                HighSchool(
-                    dbn = "12345",
-                    schoolName = "Clinton School Writers & Artists, M.S. 260",
-                    overview = "",
-                    location = "",
-                    phoneNumber = "",
-                    schoolEmail = "",
-                    city = "Manhattan"
-                )
-            )
+            highSchools = DummyContent.highSchoolList
         ),
         onItemClick = { _ -> }
     )

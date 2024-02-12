@@ -20,11 +20,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.suryodayach.nychighschools.data.model.HighSchool
+import com.suryodayach.nychighschools.utils.Description
+import com.suryodayach.nychighschools.utils.DummyContent
 
 @Composable
 fun HighSchoolDetailsRoute(
@@ -53,6 +57,7 @@ internal fun HighSchoolDetailsScreen(
             is HighSchoolDetailsUiState.Loading -> {
                 CircularProgressIndicator(
                     modifier = Modifier
+                        .semantics { contentDescription = Description.HIGH_SCHOOL_DETAILS_LOADING }
                         .size(50.dp)
                         .align(Alignment.Center)
                 )
@@ -105,7 +110,10 @@ internal fun HighSchoolDetailsScreen(
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(18.dp)
                         )
-                        Text(uiState.highSchool.phoneNumber?:"NA", style = MaterialTheme.typography.bodyMedium)
+                        Text(
+                            uiState.highSchool.phoneNumber ?: "NA",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
                     }
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(4.dp),
@@ -117,7 +125,10 @@ internal fun HighSchoolDetailsScreen(
                             tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.size(18.dp)
                         )
-                        Text(uiState.highSchool.schoolEmail?:"NA", style = MaterialTheme.typography.bodyMedium)
+                        Text(
+                            uiState.highSchool.schoolEmail ?: "NA",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
                     }
                 }
             }
@@ -130,15 +141,7 @@ internal fun HighSchoolDetailsScreen(
 fun HighSchoolDetailsScreenPreview() {
     HighSchoolDetailsScreen(
         uiState = HighSchoolDetailsUiState.Success(
-            highSchool = HighSchool(
-                dbn = "12345",
-                schoolName = "Clinton School Writers & Artists, M.S. 260",
-                overview = "Students who are prepared for college must have an education that encourages them to take risks as they produce and perform. Our college preparatory curriculum develops writers and has built a tight-knit community. Our school develops students who can think analytically and write creatively. Our arts programming builds on our 25 years of experience in visual, performing arts and music on a middle school level. We partner with New Audience and the Whitney Museum as cultural partners. We are a International Baccalaureate (IB) candidate school that offers opportunities to take college courses at neighboring universities.",
-                location = "10 East 15th Street, Manhattan NY 10003 (40.736526, -73.992727)",
-                phoneNumber = "212-524-4360",
-                schoolEmail = "admissions@theclintonschool.net",
-                city = "Manhattan"
-            )
+            highSchool = DummyContent.highSchoolList.first()
         )
     )
 }
