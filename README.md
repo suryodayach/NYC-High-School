@@ -5,6 +5,7 @@ An Android Mobile application to list NYC High Schools and show the details.
 
 This app displays the list of high schools in NYC and their details.
 
+
 **Screenshots**
 
 
@@ -14,6 +15,7 @@ This app displays the list of high schools in NYC and their details.
 **Architecture**
 
 NYC High School app follows the MVVM app architecture.
+
 
 **UI**
 
@@ -26,8 +28,12 @@ NYC High School app supports two themes:
 
 Both themes also support dark mode.
 
+
 **Unit Testing**
+
 NYC High School app uses JUnit4, Mockito, Kotlinx Coroutine Test, Mockk and Kotest libraries for unit testing.
 
+
 **UI Testing**
+
 This app uses Compose UI Test with JUnit4 for UI Testing.
